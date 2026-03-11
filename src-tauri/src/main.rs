@@ -2,6 +2,7 @@ use serde::{Serialize, Deserialize};
 use tauri::Manager;
 mod database;
 mod video;
+mod auth;
 
 #[derive(Serialize, Deserialize)]
 struct YouTubeComment {

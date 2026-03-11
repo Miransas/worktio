@@ -34,3 +34,4 @@ sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "sqlite"] }
 polars = { version = "0.36", features = ["lazy", "csv", "json"] }
 # Hata Yönetimi
 anyhow = "1.0"
+aes-gcm = "0.10"
