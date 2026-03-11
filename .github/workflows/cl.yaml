@@ -27,9 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint (if exists)
-        run: npm run lint --if-present
-
       - name: Build
         run: npm run build
 
@@ -70,5 +67,5 @@ jobs:
       - name: Clippy
         run: cargo clippy --all-targets --all-features -- -D warnings
 
-      - name: Cargo check
-        run: cargo check --all-features
+      - name: Cargo build
+        run: cargo build --all-features

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { BiPlay, BiPlus, BiSave } from "react-icons/bi";
 import ReactFlow, {
   addEdge,
@@ -13,7 +13,6 @@ import ReactFlow, {
   MarkerType,
 } from "reactflow";
 import "reactflow/dist/style.css";
-
 
 const initialNodes: Node[] = [
   {
@@ -107,24 +106,15 @@ export default function WorkflowEditor() {
   );
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "260px 1fr", height: "100vh" }}>
-      <aside style={{ borderRight: "1px solid #e5e7eb", padding: 14, background: "#fafafa" }}>
-        <h3 style={{ margin: "4px 0 12px" }}>Nodes</h3>
-        <div style={{ display: "grid", gap: 8 }}>
+    <div className="grid h-screen [grid-template-columns:260px_1fr]">
+      <aside className="border-r border-gray-200 bg-gray-50 p-3.5">
+        <h3 className="mb-3 mt-1 text-base font-semibold">Nodes</h3>
+        <div className="grid gap-2">
           {sidebarNodes.map((item) => (
             <button
               key={item}
               onClick={() => addNode(item)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                border: "1px solid #e5e7eb",
-                borderRadius: 10,
-                padding: "8px 10px",
-                background: "white",
-                cursor: "pointer",
-              }}
+              className="flex cursor-pointer items-center gap-2 rounded-[10px] border border-gray-200 bg-white px-[10px] py-2 text-sm hover:bg-gray-50"
             >
               <BiPlus size={14} />
               {item}
@@ -133,29 +123,20 @@ export default function WorkflowEditor() {
         </div>
       </aside>
 
-      <main style={{ display: "grid", gridTemplateRows: "56px 1fr" }}>
-        <header
-          style={{
-            borderBottom: "1px solid #e5e7eb",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "0 12px",
-            background: "white",
-          }}
-        >
+      <main className="grid grid-rows-[56px_1fr]">
+        <header className="flex items-center justify-between border-b border-gray-200 bg-white px-3">
           <strong>Workflow Builder</strong>
-          <div style={{ display: "flex", gap: 8 }}>
-            <button style={{ display: "flex", gap: 6, alignItems: "center" }}>
+          <div className="flex gap-2">
+            <button className="flex items-center gap-1.5 rounded-md border border-gray-200 bg-white px-3 py-1.5 text-sm hover:bg-gray-50">
               <BiSave size={16} /> Save
             </button>
-            <button style={{ display: "flex", gap: 6, alignItems: "center" }}>
+            <button className="flex items-center gap-1.5 rounded-md border border-gray-200 bg-white px-3 py-1.5 text-sm hover:bg-gray-50">
               <BiPlay size={16} /> Run
             </button>
           </div>
         </header>
 
-        <section style={{ width: "100%", height: "100%", position: "relative" }}>
+        <section className="relative h-full w-full">
           <ReactFlow
             nodes={nodes}
             edges={edges}
@@ -169,18 +150,7 @@ export default function WorkflowEditor() {
             <Background gap={20} />
           </ReactFlow>
 
-          <div
-            style={{
-              position: "absolute",
-              right: 12,
-              top: 12,
-              background: "rgba(255,255,255,0.95)",
-              border: "1px solid #e5e7eb",
-              borderRadius: 10,
-              padding: "8px 10px",
-              fontSize: 13,
-            }}
-          >
+          <div className="absolute right-3 top-3 rounded-[10px] border border-gray-200 bg-white/95 px-[10px] py-2 text-xs">
             Nodes: {stats.nodeCount} • Connections: {stats.edgeCount}
           </div>
         </section>
