@@ -3,6 +3,7 @@ use tauri::Manager;
 mod database;
 mod video;
 mod auth;
+mod user_db;
 
 #[derive(Serialize, Deserialize)]
 struct YouTubeComment {
@@ -43,6 +44,8 @@ async fn fetch_latest_comments(api_key: String, video_id: String) -> Result<Vec<
     
     Ok(comments)
 }
+
+
 
 fn main() {
     tauri::Builder::default()
