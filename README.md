@@ -1,7 +1,7 @@
 # Worktio
 
 <p align="center">
-  <img src="/logo.png" alt="Worktio Logo" width="140" />
+  <img src="https://github.com/Miransas/worktio/blob/main/public/logo.png" alt="Worktio Logo" width="140" />
 </p>
 
 <p align="center">
