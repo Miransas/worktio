@@ -1,5 +1,5 @@
-mod oauth;
-mod tokens;
-mod callback;
-mod exchane;
-mod platform;
+pub mod callback;
+pub mod exchange;
+pub mod oauth;
+pub mod platforms;
+pub mod tokens;

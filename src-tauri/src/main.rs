@@ -1,3 +1,8 @@
+mod auth;
+mod database;
+
+
+
 use auth::callback::wait_for_callback;
 use auth::exchange::exchange_code_for_token;
 use auth::platforms::*;
